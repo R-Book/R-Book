@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 
 import gr.net.maroulis.library.EasySplashScreen;
@@ -19,19 +18,19 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(LoginActivity.class)
                 .withSplashTimeOut(5000)
-                .withBackgroundColor(Color.parseColor("#1a1b29"))
-/*                .withHeaderText("Header")
+                .withBackgroundColor(Color.parseColor("#6e11ba"))
+                .withHeaderText("Header")
                 .withFooterText("Footer")
                 .withBeforeLogoText("Before Logo Text")
-                .withAfterLogoText("After Logo Text ")*/
+                .withAfterLogoText("After Logo Text ")
                 .withLogo(R.drawable.icon);
 
-/*        config.getHeaderTextView().setTextColor(Color.WHITE);
+        config.getHeaderTextView().setTextColor(Color.WHITE);
         config.getFooterTextView().setTextColor(Color.WHITE);
         config.getBeforeLogoTextView().setTextColor(Color.WHITE);
-        config.getAfterLogoTextView().setTextColor(Color.WHITE);*/
+        config.getAfterLogoTextView().setTextColor(Color.WHITE);
 
         View easySplashScreen = config.create();
-        setContentView(R.layout.activity_main);
+        setContentView(easySplashScreen);
     }
 }
