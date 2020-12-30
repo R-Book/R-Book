@@ -6,4 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <EditText
+        android:id="@+id/UserMail"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints=""
+        android:background="@drawable/frame"
+        android:hint="   Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.629"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.474" />
+
+    <EditText
+        android:id="@+id/SecretKey"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/frame"
+        android:hint="   Password"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.588" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="37dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
+        android:background="#FFFFFF"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="@+id/UserMail"
+        app:layout_constraintStart_toStartOf="@+id/UserMail"
+        app:layout_constraintTop_toTopOf="@+id/UserMail"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_email"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="37dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="@+id/SecretKey"
+        app:layout_constraintEnd_toEndOf="@+id/SecretKey"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toStartOf="@+id/SecretKey"
+        app:layout_constraintTop_toTopOf="@+id/SecretKey"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_psw"
+        tools:ignore="VectorDrawableCompat" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
