@@ -18,11 +18,11 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(LoginActivity.class)
                 .withSplashTimeOut(5000)
-                .withBackgroundColor(Color.parseColor("#6e11ba"))
+                .withBackgroundColor(Color.parseColor("Color.WHITE"))
                 .withHeaderText("Header")
                 .withFooterText("Footer")
-                .withBeforeLogoText("Before Logo Text")
-                .withAfterLogoText("After Logo Text ")
+                .withBeforeLogoText(" WELCOME ")
+                .withAfterLogoText("R-BOOK")
                 .withLogo(R.drawable.icon);
 
         config.getHeaderTextView().setTextColor(Color.WHITE);

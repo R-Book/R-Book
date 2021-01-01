@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="87dp"
+        android:layout_height="77dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="486dp"
+        app:srcCompat="@drawable/user" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="275dp"
+        android:layout_height="64dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginBottom="-5dp"
+        android:background="#FC673AB7"
+        android:elegantTextHeight="true"
+        android:ems="10"
+        android:freezesText="true"
+        android:gravity="center_horizontal"
+        android:hapticFeedbackEnabled="false"
+        android:hint="USER NAME"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFEB3B"
+        android:textColorHighlight="@android:color/holo_orange_light"
+        android:textColorHint="@android:color/holo_orange_light"
+        android:textIsSelectable="false"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="81dp"
+        android:layout_height="74dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="374dp"
+        app:srcCompat="@drawable/mail" />
+
+    <EditText
+        android:id="@+id/txtemail"
+        android:layout_width="268dp"
+        android:layout_height="52dp"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginLeft="91dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:layout_marginBottom="280dp"
+        android:background="#673AB7"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="E-MAIL"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textColorHighlight="#FFC107"
+        android:textColorHint="#FFC107"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="294dp"
+        app:srcCompat="@drawable/lock" />
+
+    <EditText
+        android:id="@+id/txtpassword"
+        android:layout_width="275dp"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="378dp"
+        android:background="#673AB7"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="PASSWORD"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="#FF9800"
+        android:textColorHint="#FFC107"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="205dp"
+        app:srcCompat="@drawable/lock" />
+
+    <EditText
+        android:id="@+id/txtpassword2"
+        android:layout_width="291dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="89dp"
+        android:layout_marginLeft="89dp"
+        android:layout_marginTop="479dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="198dp"
+        android:background="#673AB7"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="CONFIRM PASSWORD"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textColorHint="#FFC107"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="98dp"
+        android:background="#FFC107"
+        android:text="BACK" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="104dp"
+        android:background="#FFC107"
+        android:text="LOGIN" />
+
+</RelativeLayout>
