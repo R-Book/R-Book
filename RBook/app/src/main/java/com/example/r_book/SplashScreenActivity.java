@@ -18,7 +18,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(LoginActivity.class)
                 .withSplashTimeOut(5000)
-                .withBackgroundColor(Color.parseColor("Color.WHITE"))
+                .withBackgroundColor(Color.parseColor("#1a1b29"))
                 .withHeaderText("Header")
                 .withFooterText("Footer")
                 .withBeforeLogoText(" WELCOME ")
