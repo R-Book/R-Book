@@ -15,6 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:autofillHints=""
         android:background="#FC673AB7"
         android:elegantTextHeight="true"
         android:ems="10"
@@ -35,8 +36,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.873" />
 
     <EditText
         android:id="@+id/password"
@@ -65,10 +65,14 @@
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="140dp"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginRight="320dp"
         android:backgroundTint="#C8FFC107"
         android:gravity="center_horizontal"
         android:text="@string/login"
@@ -83,10 +87,14 @@
 
     <Button
         android:id="@+id/register_button"
-        android:layout_width="140dp"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="320dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:backgroundTint="#BEFFC107"
         android:gravity="center_horizontal"
         android:text="@string/register"
@@ -101,35 +109,43 @@
 
     <ImageView
         android:id="@+id/img_lock"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginRight="320dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621"
-        app:srcCompat="@drawable/lock"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="@+id/password"
+        app:srcCompat="@drawable/lock" />
 
     <ImageView
         android:id="@+id/img_user"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginRight="320dp"
+        android:layout_marginBottom="12dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431"
-        app:srcCompat="@drawable/user"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="@+id/email"
+        app:layout_constraintVertical_bias="0.692"
+        app:srcCompat="@drawable/user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

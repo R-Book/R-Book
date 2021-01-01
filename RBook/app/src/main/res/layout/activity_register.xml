@@ -17,7 +17,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:background="#FC673AB7"
-        android:elegantTextHeight="true"
         android:ems="10"
         android:freezesText="true"
         android:gravity="center_horizontal"
