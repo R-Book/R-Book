@@ -20,15 +20,8 @@ public class LoginActivity extends AppCompatActivity {
         Register.setOnClickListener(view -> {
             String mail = Email.getText().toString();
             String password = Password.getText().toString();
-            if (mail.isEmpty()) {
-                Email.setError("Field can't be empty");
-            }if (password.isEmpty()) {
-                Password.setError("Field can't be empty");
-            }
-            else {
                 Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
-            }
         });
     }
 }
