@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.r_book">
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -9,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RBook">
-        <activity android:name=".AddImageActivity"></activity>
-        <activity android:name=".HomeScreenActivity" />
+        <activity android:name=".PostActivity"></activity>
+        <activity android:name=".AddImageActivity" />
+        <activity android:name=".SplashScreenActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".HomeScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
