@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RBook">
-        <activity android:name=".HomeScreenActivity"></activity>
+        <activity android:name=".AddImageActivity"></activity>
+        <activity android:name=".HomeScreenActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
