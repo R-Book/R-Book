@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "430109840304",
+    "project_id": "r-bookfirebase",
+    "storage_bucket": "r-bookfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430109840304:android:15c94dab60769d7cacfc75",
+        "android_client_info": {
+          "package_name": "com.example.r_book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430109840304-tnlm8hcnh08c7v06agq0r1m0h6bket6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwwdw4STJzbZXh-WNt9zHCwhwYpwUpuUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430109840304-tnlm8hcnh08c7v06agq0r1m0h6bket6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
