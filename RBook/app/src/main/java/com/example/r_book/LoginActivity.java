@@ -6,6 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
+
+import android.view.View;
+
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -59,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
 
-        Intent intent=new Intent(LoginActivity.this,RegesterActivity.class); /*regester basınca login ekranına gidecek*/
+        Intent intent=new Intent(LoginActivity.this,RegesterActivity.class); /*register basınca regester ekranına gidecek*/
         startActivity(intent);
 
     }
