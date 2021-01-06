@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     EditText usernameText,emailtxt, passwordText,passwordtxt;
 
@@ -19,15 +19,15 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();    /*değer atadık*/
-        usernameText = findViewById(R.id.usernameText);
-        emailtxt = findViewById(R.id.emailtxt);
+        usernameText = findViewById(R.id.email);
+        emailtxt = findViewById(R.id.txtemail);
         passwordText = findViewById(R.id.txtpassword);
-        passwordtxt = findViewById(R.id.passwordTxt);
+        passwordtxt = findViewById(R.id.txtpassword2);
 
         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 
         if(firebaseUser != null){
-            Intent intent=new Intent(RegesterActivity.this,HomeActivity.class); /*başarılı olunca gideceği yer*/
+            Intent intent=new Intent(RegisterActivity.this,HomeScreenActivity.class); /*başarılı olunca gideceği yer*/
             startActivity(intent);
         }
 
@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         String password=passwordText.getText().toString();
         String confirmpassword=passwordtxt.getText().toString();
 
-        Intent intent=new Intent(RegesterActivity.this,HomeActivity.class); /*kullanıcı istemezse direk home ekranına geçiş yapar*/
+        Intent intent=new Intent(RegisterActivity.this,HomeScreenActivity.class); /*kullanıcı istemezse direk home ekranına geçiş yapar*/
         startActivity(intent);
 
 
@@ -54,13 +54,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(LoginActivity.this,"User Regested",Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(RegesterActivity.this,HomeActivity.class); /*başarılı olunca gideceği yer,regester olunca homescreene gider*/
+                Intent intent=new Intent(RegisterActivity.this,HomeScreenActivity.class); /*başarılı olunca gideceği yer,regester olunca homescreene gider*/
                 startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RegesterActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show(); /*message*/
+                Toast.makeText(RegisterActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show(); /*message*/
 
             }
 
