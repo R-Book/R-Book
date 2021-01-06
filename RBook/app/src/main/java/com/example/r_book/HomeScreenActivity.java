@@ -1,5 +1,6 @@
 package com.example.r_book;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,14 +9,20 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeScreenActivity extends AppCompatActivity {
+    private FirebaseAuth firebaseAuth;
 
     List<Post> posts = new ArrayList<>();
     ListView listView;
@@ -23,12 +30,11 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        firebaseAuth = FirebaseAuth.getInstance();    /*değer atadık*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-        Log.d("Dev", "Burdayım");
 
         listView = findViewById(R.id.listView);
-        Log.d("Dev", "Burdayım2");
         listView.setAdapter(new PostAdapter(this, posts));
 
         Button btnPost = findViewById(R.id.btnPost);
@@ -54,4 +60,26 @@ public class HomeScreenActivity extends AppCompatActivity {
             ((PostAdapter) listView.getAdapter()).notifyDataSetChanged();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {/*menuyü bağlamak için */
+
+        MenuInflater menuInflater=getMenuInflater();
+        menuInflater.inflate(R.menu.rbook_options_menu,menu); /*birbirine bağladık */
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {  /*menuyü işlemleri gerçekleştirmek için */
+        if(item.getItemId()==R.id.signout){
+            firebaseAuth.signOut();  /*çıkış işlemi */
+            Intent intent= new Intent(HomeScreenActivity.this,LoginActivity.class);
+            startActivity(intent);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

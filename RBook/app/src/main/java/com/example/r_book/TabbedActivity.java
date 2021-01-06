@@ -32,15 +32,5 @@ public class TabbedActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);   /* tabs*/
         tabs.setupWithViewPager(viewPager);
 
-/*        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Intent i = new Intent(TabbedActivity.this, HomeScreenActivity.class);
-                startActivity(i);
-            }
-        });*/
     }
 }
