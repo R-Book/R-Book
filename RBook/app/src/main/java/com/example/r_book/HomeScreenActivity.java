@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -75,7 +74,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {  /*menuyü işlemleri gerçekleştirmek için */
         if(item.getItemId()==R.id.signout){
             firebaseAuth.signOut();  /*çıkış işlemi */
-            Intent intent= new Intent(HomeScreenActivity.this,LoginActivity.class);
+            Intent intent= new Intent(HomeScreenActivity.this,TabbedActivity.class);
             startActivity(intent);
 
         }

@@ -16,9 +16,7 @@
         <activity android:name=".PostActivity" />
         <activity android:name=".AddImageActivity" />
         <activity android:name=".HomeScreenActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".SplashScreenActivity"/>
-        <activity android:name=".RegisterActivity"/>
         <activity android:name=".TabbedActivity"
             android:label="@string/title_activity_tabbed"
             android:theme="@style/Theme.RBook.NoActionBar" >
