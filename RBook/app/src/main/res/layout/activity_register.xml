@@ -7,7 +7,7 @@
     tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/username"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_alignTop="@+id/img_user"
@@ -46,12 +46,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/email"
+        app:layout_constraintTop_toTopOf="@+id/username"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/user" />
 
     <EditText
-        android:id="@+id/txtemail"
+        android:id="@+id/emailtxt"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_alignTop="@+id/img_mail"
@@ -96,7 +96,7 @@
         app:srcCompat="@drawable/mail" />
 
     <EditText
-        android:id="@+id/txtpassword"
+        android:id="@+id/passwordtxt"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_alignParentStart="true"
@@ -140,7 +140,7 @@
         app:srcCompat="@drawable/lock" />
 
     <EditText
-        android:id="@+id/txtpassword2"
+        android:id="@+id/passwordtxt2"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_alignParentStart="true"
@@ -182,7 +182,7 @@
         app:srcCompat="@drawable/lock" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/back_button"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -197,7 +197,7 @@
         app:layout_constraintVertical_bias="0.897" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/login_button2"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"

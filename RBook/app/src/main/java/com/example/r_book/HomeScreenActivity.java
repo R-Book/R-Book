@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeScreenActivity extends AppCompatActivity {
-    private FirebaseAuth firebaseAuth;
 
     List<Post> posts = new ArrayList<>();
     ListView listView;
@@ -24,7 +23,6 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        firebaseAuth = FirebaseAuth.getInstance();    /*değer atadık*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         Log.d("Dev", "Burdayım");
@@ -56,25 +54,4 @@ public class HomeScreenActivity extends AppCompatActivity {
             ((PostAdapter) listView.getAdapter()).notifyDataSetChanged();
         }
     }
-    
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {/*menuyü bağlamak için */
-
-        MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.rbook_options_menu,menu); /*birbirine bağladık */
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {  /*menuyü işlemleri gerçekleştirmek için */
-        if(item.getItemId()==R.id.signout){
-            firebaseAuth.signOut();  /*çıkış işlemi */
-            Intent intent= new Intent(HomeScreenActivity.this,LoginActivity.class);
-            startActivity(intent);
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }
