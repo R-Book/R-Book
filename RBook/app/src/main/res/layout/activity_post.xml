@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".PostActivity">
 
-    <include
+    <ImageButton
         android:id="@+id/imgView2"
-        layout="@layout/row"
-        android:layout_width="400dp"
-        android:layout_height="655dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus" />
 
     <ImageButton
         android:id="@+id/btnOk"
@@ -34,5 +35,123 @@
         app:layout_constraintStart_toEndOf="@+id/btnOk"
         app:layout_constraintTop_toTopOf="@+id/btnOk"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="ADD IMAGE"
+        android:textColor="#673AB7"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.354"
+        app:srcCompat="@drawable/book" />
+
+    <EditText
+        android:id="@+id/txtname"
+        android:layout_width="279dp"
+        android:layout_height="49dp"
+        android:background="#673AB7"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="BOOK NAME"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColorHint="#FFC107"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.146"
+        app:srcCompat="@drawable/money" />
+
+    <TextView
+        android:id="@+id/txtprice"
+        android:layout_width="276dp"
+        android:layout_height="54dp"
+        android:background="#673AB7"
+        android:gravity="center_horizontal"
+        android:hint="BOOK PRICE"
+        android:textAlignment="center"
+        android:textColorHint="#FFC107"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/txtname"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.206"
+        app:srcCompat="@drawable/other" />
+
+    <EditText
+        android:id="@+id/txtother"
+        android:layout_width="282dp"
+        android:layout_height="66dp"
+        android:background="#673AB7"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="OTHER INFORMATION"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColorHint="#FFC107"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.389"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/txtprice"
+        app:layout_constraintVertical_bias="0.178" />
+
+    <Button
+        android:id="@+id/btnshare"
+        android:layout_width="142dp"
+        android:layout_height="57dp"
+        android:background="#FFC107"
+        android:gravity="center_horizontal"
+        android:text="SHARE"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtother" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
