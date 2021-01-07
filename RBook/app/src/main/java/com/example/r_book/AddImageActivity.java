@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_image);
 
         imageView=findViewById(R.id.imageButton);
         txtname=findViewById(R.id.txtname);
