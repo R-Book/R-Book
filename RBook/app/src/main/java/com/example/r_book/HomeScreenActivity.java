@@ -30,8 +30,14 @@ public class HomeScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         firebaseAuth = FirebaseAuth.getInstance();    /*değer atadık*/
+        userNameFromFB = new ArrayList<>();
+        userPriceFromFB = new ArrayList<>();
+        userOtherFromFB = new ArrayList<>();
+        userEmailFromFB = new ArrayList<>();
+        userImageFromFB = new ArrayList<>();/*burdan tam emin değilim şimdilik dursun*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        getDataFromFirestore();
 
         listView = findViewById(R.id.listView);
         listView.setAdapter(new PostAdapter(this, posts));
@@ -80,5 +86,50 @@ public class HomeScreenActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public void getDataFromFirestore(){
+
+        CollectionReference collectionReference = firebaseFirestore.collection("Posts");
+
+        collectionReference.orderBy("date", DownloadManager.Query.Direction.DESCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+
+                if (e != null) {
+                    Toast.makeText(HomeScreen.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
+                }
+
+                if (queryDocumentSnapshots != null) {
+
+                    for (DocumentSnapshot snapshot : queryDocumentSnapshots.getDocuments()) {
+
+                        Map<String,Object> data = snapshot.getData();
+
+                        //Casting
+
+                        String name = (String) data.get("bookname");
+                        String price = (String) data.get("bookprice");
+                        String other = (String) data.get("bookotherinfo");
+                        String userEmail = (String) data.get("useremail");
+                        String downloadUrl = (String) data.get("downloadurl");
+
+                        userNameFromFB.add(name);
+                        userPriceFromFB.add(price);
+                        userOtherFromFB.add(other);
+                        userEmailFromFB.add(userEmail);
+                        userImageFromFB.add(downloadUrl);
+
+                        feedRecyclerAdapter.notifyDataSetChanged();
+
+                    }
+
+
+                }
+
+            }
+        });
+
+
+    }
+
 
 }
