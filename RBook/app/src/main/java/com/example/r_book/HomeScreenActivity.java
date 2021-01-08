@@ -118,7 +118,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                         userEmailFromFB.add(userEmail);
                         userImageFromFB.add(downloadUrl);
 
-                        feedRecyclerAdapter.notifyDataSetChanged();
+                        /*feedRecyclerAdapter.notifyDataSetChanged();*/
 
                     }
 
@@ -130,6 +130,4 @@ public class HomeScreenActivity extends AppCompatActivity {
 
 
     }
-
-
 }
