@@ -82,7 +82,7 @@ public class PostActivity extends AppCompatActivity {
                     UUID uuid = UUID.randomUUID();   //universal unquie id uui
                     final String imageName = "images/" + uuid + ".jpg";
 
-                    storageReference.child("imageName").putFile(imageData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {   //firebase de url a koy
+                    storageReference.child(imageName).putFile(imageData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {   //firebase de url a koy
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
