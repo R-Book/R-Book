@@ -29,7 +29,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        firebaseAuth = FirebaseAuth.getInstance();    /*değer atadık*/
+        firebaseAuth = FirebaseAuth.getInstance();    /*we assigned value*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
@@ -40,7 +40,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeScreenActivity.this, PostActivity.class);  /*post activitye geçiş yap*/
+                Intent intent = new Intent(HomeScreenActivity.this, PostActivity.class);  /*Switch post activity*/
                 startActivityForResult(intent, POST_REQUEST);
             }
         });
@@ -62,20 +62,20 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {/*menuyü bağlamak için */
+    public boolean onCreateOptionsMenu(Menu menu) {/*to connect to the menu */
 
         MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.rbook_options_menu,menu); /*birbirine bağladık */
+        menuInflater.inflate(R.menu.rbook_options_menu,menu); 
 
         return super.onCreateOptionsMenu(menu);
     }
 
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {  /*menuyü işlemleri gerçekleştirmek için */
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {  /*To perform menu operations. */
         if(item.getItemId()==R.id.signout){
-            firebaseAuth.signOut();  /*çıkış işlemi */
-            Intent intent= new Intent(HomeScreenActivity.this,TabbedActivity.class); /*çıkınca başa dön*/
+            firebaseAuth.signOut();  /*sign out process */
+            Intent intent= new Intent(HomeScreenActivity.this,TabbedActivity.class); /*back to top when you leave*/
             startActivity(intent);
 
         }
