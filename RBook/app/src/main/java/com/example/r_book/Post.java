@@ -6,8 +6,9 @@ import android.location.Location;
 public class Post {
 
     private Bitmap image;
-    private Location location;
-    private String message;
+    private String name;
+    private String price;
+    private String other;
 
     public Bitmap getImage() {
             return image;
@@ -17,19 +18,30 @@ public class Post {
             this.image = image;
     }
 
-    public Location getLocation() {
-        return location;
+    public String getName(){
+        return name;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setName(String name){
+        this.name = name;
     }
 
-    public String getMessage() {
-        return message;
+
+    public String getPrice() {
+        return price;
     }
-    public void setMessage(String message) {
-        this.message = message;
+
+    public void setPrice(String price) {
+        this.price = price;
         }
+
+    public String getOther(){
+        return name;
     }
+
+    public void setOther(String other){
+        this.other = other;
+    }
+
+}
 

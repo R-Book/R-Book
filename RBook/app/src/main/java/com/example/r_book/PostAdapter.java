@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 
 import java.util.List;
 
 public class PostAdapter extends BaseAdapter {
 
-    List<Post> posts;
+    List<Post> posts;  //constructor
     LayoutInflater inflater;
 
     public PostAdapter(Activity activity, List<Post> posts) {
@@ -25,7 +25,7 @@ public class PostAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return posts.size();
+        return posts.size();  //it depends out data
     }
 
     @Override
@@ -42,21 +42,24 @@ public class PostAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        @SuppressLint("ViewHolder") View rowView = inflater.inflate(R.layout.row, null);
+        @SuppressLint("ViewHolder") View rowView = inflater.inflate(R.layout.row, null);  /*row source*/
 
-        EditText txtMessage = rowView.findViewById(R.id.txtMessage);
-        TextView txtLocation = rowView.findViewById(R.id.txtLocation);
-        ImageView imageView = rowView.findViewById(R.id.imgView2);
+        EditText txtName = (EditText) rowView.findViewById(R.id.txtname);
+        EditText txtPrice = (EditText) rowView.findViewById(R.id.txtprice);
+        EditText txtOther = (EditText) rowView.findViewById(R.id.txtother);
+        ImageView imageView = rowView.findViewById(R.id.imageView);
 
         Post post = posts.get(position);
 
-        txtMessage.setText(post.getMessage());
+        txtName.setText(post.getName());
+        txtPrice.setText(post.getPrice());
+        txtOther.setText(post.getOther());
         imageView.setImageBitmap(post.getImage());
 
-        if (post.getLocation() != null) {
-            txtLocation.setText(post.getLocation().getLatitude() + " " + post.getLocation().getLongitude());
-        }
 
+        if (post.getName() != null) {
+            txtName.setText(post.getName()+ " " + post.getName());
+        }
         return rowView;
     }
 }

@@ -1,54 +1,138 @@
 package com.example.r_book;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.ImageDecoder;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.content.Intent;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class PostActivity extends AppCompatActivity {
 
     static final int CAPTURE_IMAGE = 0;
-    EditText txtMsg;
+    static final int REQUEST_READ_STORAGE = 1;
+
+    Bitmap selectedImage;
     ImageView img;
-    ImageButton btnOk;
-    ImageButton btnCancel;
+    Button btnOk;
+    Button btnCancel;
+    EditText txtName,txtPrice,txtOther;
+
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
+    Uri imageData;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+        setContentView(R.layout.post2);
 
-        img = findViewById(R.id.imageView);
+        img = findViewById(R.id.imageView);   /* imageView in row.xml*/
         btnOk = findViewById(R.id.btnOk);
         btnCancel = findViewById(R.id.btnCancel);
+        txtName = findViewById(R.id.txtname);
+        txtPrice = findViewById(R.id.txtprice);
+        txtOther = findViewById(R.id.txtother);
 
-        img.setOnClickListener(new View.OnClickListener() {
+        firebaseStorage = FirebaseStorage.getInstance();   /*initialize firebase storage*/
+        storageReference = firebaseStorage.getReference();   /*referance veriyoruz*/
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        btnOk.setOnClickListener(new View.OnClickListener() {   /*when you click to ok button*/
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, CAPTURE_IMAGE);
 
-            }
-        });
+                if (imageData != null) {
 
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putCharSequence("msg",txtMsg.getText());
-                bundle.putParcelable("bitmap",((BitmapDrawable)img.getDrawable()).getBitmap());
-                intent.putExtras(bundle);
-                setResult(Activity.RESULT_OK,intent);
-                finish();
+                    UUID uuid = UUID.randomUUID();   //universal unquie id uui
+                    final String imageName = "images/" + uuid + ".jpg";
+
+                    storageReference.child("imageName").putFile(imageData).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {   //firebase de url a koy
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            //Download URL
+                            StorageReference newReference = FirebaseStorage.getInstance().getReference(imageName);
+                            newReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                                @Override
+                                public void onSuccess(Uri uri) {
+
+                                    String downloadUrl = uri.toString(); //url aldım
+
+                                    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                                    String userEmail = firebaseUser.getEmail(); //email aldım
+
+                                    String bookname = txtName.getText().toString(); //*book name aldım
+                                    String price = txtPrice.getText().toString(); //*book price aldım
+                                    String other = txtOther.getText().toString(); //*book other information aldım
+
+                                    HashMap<String, Object> postData = new HashMap<>(); //Bundle bundle = new Bundle();
+                                    postData.put("useremail", userEmail);
+                                    postData.put("downloadurl", downloadUrl);
+                                    postData.put("bookname", bookname);
+                                    postData.put("bookprice", price);
+                                    postData.put("bookotherinfo", other);
+                                    postData.put("date", FieldValue.serverTimestamp());
+
+                                    firebaseFirestore.collection("Posts").add(postData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            Intent intent = new Intent(PostActivity.this, HomeScreenActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //arka plandaki her şeyi kapat
+                                            startActivity(intent);
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) { //hata mesajı
+                                            Toast.makeText(PostActivity.this, e.getLocalizedMessage().toString(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(PostActivity.this, e.getLocalizedMessage().toString(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
 
@@ -57,21 +141,59 @@ public class PostActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setResult(Activity.RESULT_CANCELED);
                 finish();
-
             }
         });
 
+        img.setOnClickListener(new View.OnClickListener() {/*when you tap to camera image*/
+            @Override
+            public void onClick(View v) {
+//               if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) { //eğer izin yoksa
+//                    ActivityCompat.requestPermissions(PostActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_STORAGE);   //şu izni iste
+//                } else { //eğer bu izin verilmişse
+//                   Intent intentToGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                   startActivityForResult(intentToGallery, 2);
+//               }
+/*                Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, 2);*/
+
+                Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, CAPTURE_IMAGE);
+                }
+            }
+        });
     }
+
+   /* @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Intent intentToGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intentToGallery, 2);
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == CAPTURE_IMAGE && resultCode == Activity.RESULT_OK) {
-            Bundle bundle = data.getExtras();
-            Bitmap image = (Bitmap) bundle.get("data");
-            img.setImageBitmap(image);
+        if (requestCode == 0 && resultCode == RESULT_OK && data != null ) { //eğer izin verilmiş ve data boş değil ise
+             imageData = data.getData();
+            try {
+                if (Build.VERSION.SDK_INT >= 28) {   //28 altındakiler için
+                    ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(),imageData);
+                    selectedImage = ImageDecoder.decodeBitmap(source);
+                    img.setImageBitmap(selectedImage);
+                } else {
+                    selectedImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageData);
+                    img.setImageBitmap(selectedImage);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
-
 }

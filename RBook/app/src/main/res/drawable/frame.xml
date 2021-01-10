@@ -6,9 +6,9 @@
                 android:bottomLeftRadius="30dp"
                 android:bottomRightRadius="30dp"
                 android:radius="60dp"
-                android:topLeftRadius="30dp"
-                android:topRightRadius="30dp" />
-            <stroke android:width="0.5dp" android:color="#FFEB3B"/>
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp" />
+            <stroke android:width="0.5dp" android:color="#000000"/>
         </shape>
     </item>
 </selector>
