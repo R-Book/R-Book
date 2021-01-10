@@ -29,12 +29,12 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        firebaseAuth = FirebaseAuth.getInstance();    /*değer atadık*/
+        firebaseAuth = FirebaseAuth.getInstance();    /* we set a value */
         userNameFromFB = new ArrayList<>();
         userPriceFromFB = new ArrayList<>();
         userOtherFromFB = new ArrayList<>();
         userEmailFromFB = new ArrayList<>();
-        userImageFromFB = new ArrayList<>();/*burdan tam emin değilim şimdilik dursun*/
+        userImageFromFB = new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         getDataFromFirestore();
@@ -67,19 +67,18 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {/*menuyü bağlamak için */
+    public boolean onCreateOptionsMenu(Menu menu) {/* to link the menu */
 
         MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.rbook_options_menu,menu); /*birbirine bağladık */
-
+        menuInflater.inflate(R.menu.rbook_options_menu,menu); /* linking is done. */
         return super.onCreateOptionsMenu(menu);
     }
 
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {  /*menuyü işlemleri gerçekleştirmek için */
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {  /* To perform menu operations */
         if(item.getItemId()==R.id.signout){
-            firebaseAuth.signOut();  /*çıkış işlemi */
+            firebaseAuth.signOut();  /*sign out process */
             Intent intent= new Intent(HomeScreenActivity.this,TabbedActivity.class);
             startActivity(intent);
 
