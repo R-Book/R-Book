@@ -73,14 +73,14 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
 
-                            String downloadUrl = uri.toString(); /*url aldım*/
+                            String downloadUrl = uri.toString(); /* I got the url */
 
                             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                            String userEmail = firebaseUser.getEmail(); /*email aldım*/
+                            String userEmail = firebaseUser.getEmail(); /*I got the email */
 
-                            String bookname = txtname.getText().toString(); /*book name aldım*/
-                            String price = txtprice.getText().toString(); /*book price aldım*/
-                            String other = txtother.getText().toString(); /*book other information aldım*/
+                            String bookname = txtname.getText().toString(); /*I got the book name*/
+                            String price = txtprice.getText().toString(); /*I got the book price*/
+                            String other = txtother.getText().toString(); /*I got the book other information*/
 
                             HashMap<String, Object> postData = new HashMap<>();
                             postData.put("useremail",userEmail);
@@ -95,13 +95,13 @@ public class MainActivity extends AppCompatActivity {
                                 public void onSuccess(DocumentReference documentReference) {
 
                                     Intent intent = new Intent(AddImageActivity.this,HomeScreenActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); /*arka plandaki her şeyi kapat*/
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); /* turn off everything in the background */
                                     startActivity(intent);
 
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
-                                public void onFailure(@NonNull Exception e) { /*hata mesajı*/
+                                public void onFailure(@NonNull Exception e) { /*error message*/
                                     Toast.makeText(AddImageActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
                                 }
                             });
@@ -127,8 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void addImage(View view){  /*add image basınca olması gereken her şey örneğin:izinler*/
-
+    public void addImage(View view){  /* everything that should happen when pressing add image for example: permissions */
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
 
@@ -140,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) { /*izin aldıktan sonra neler olacağına dair işler yapılır*/
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) { /* Things are done to see what will happen after getting permission */
         if (requestCode==1){
             if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 Intent intentToGallery=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -153,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode==2 && resultCode ==RESULT_OK && data != null) {  /*image seçip tamamladıysa nolucak sorusunun cevabı*/
+        if(requestCode==2 && resultCode ==RESULT_OK && data != null) {  /* The answer to the question of what will happen if image is selected and completed */
             imageData = data.getData();
             try {
-                if (Build.VERSION.SDK_INT >= 28) { /*android sürümü kontrol etmek için*/
+                if (Build.VERSION.SDK_INT >= 28) { /* to check android version */
                     ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(), imageData);
                     addImage = ImageDecoder.decodeBitmap(source);
                     imageView.setImageBitmap(addImage);
