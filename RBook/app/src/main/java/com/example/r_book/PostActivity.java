@@ -105,9 +105,9 @@ public class PostActivity extends AppCompatActivity {
                                     HashMap<String, Object> postData = new HashMap<>(); //Bundle bundle = new Bundle();
                                     postData.put("useremail", userEmail);
                                     postData.put("downloadurl", downloadUrl);
-                                    postData.put("bookname", bookname);
-                                    postData.put("bookprice", price);
-                                    postData.put("bookotherinfo", other);
+                                    postData.put("name", bookname);
+                                    postData.put("price", price);
+                                    postData.put("other", other);
                                     postData.put("date", FieldValue.serverTimestamp());
 
                                     firebaseFirestore.collection("Posts").add(postData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -147,14 +147,6 @@ public class PostActivity extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {/*when you tap to camera image*/
             @Override
             public void onClick(View v) {
-//               if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) { //if not allowed
-//                    ActivityCompat.requestPermissions(PostActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_STORAGE);   //ask for this permission
-//                } else { //if this is allowed
-//                   Intent intentToGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                   startActivityForResult(intentToGallery, 2);
-//               }
-/*                Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, 2);*/
 
                 Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 if (intent.resolveActivity(getPackageManager()) != null) {
@@ -163,17 +155,6 @@ public class PostActivity extends AppCompatActivity {
             }
         });
     }
-
-   /* @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 1) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Intent intentToGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intentToGallery, 2);
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
