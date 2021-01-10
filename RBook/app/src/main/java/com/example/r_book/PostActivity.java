@@ -69,7 +69,7 @@ public class PostActivity extends AppCompatActivity {
         txtOther = findViewById(R.id.txtother);
 
         firebaseStorage = FirebaseStorage.getInstance();   /*initialize firebase storage*/
-        storageReference = firebaseStorage.getReference();   /*referance veriyoruz*/
+        storageReference = firebaseStorage.getReference();   /*we give reference.*/
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -93,14 +93,14 @@ public class PostActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
 
-                                    String downloadUrl = uri.toString(); //url aldım
+                                    String downloadUrl = uri.toString(); /*I got the url*/
 
                                     FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                                    String userEmail = firebaseUser.getEmail(); //email aldım
+                                    String userEmail = firebaseUser.getEmail(); /*I got the email*/
 
-                                    String bookname = txtName.getText().toString(); //*book name aldım
-                                    String price = txtPrice.getText().toString(); //*book price aldım
-                                    String other = txtOther.getText().toString(); //*book other information aldım
+                                    String bookname = txtName.getText().toString(); /*I got the book name*/
+                                    String price = txtPrice.getText().toString(); /*I got the book price*/
+                                    String other = txtOther.getText().toString(); /*I got the book other information*/
 
                                     HashMap<String, Object> postData = new HashMap<>(); //Bundle bundle = new Bundle();
                                     postData.put("useremail", userEmail);
@@ -114,12 +114,12 @@ public class PostActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
                                             Intent intent = new Intent(PostActivity.this, HomeScreenActivity.class);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //arka plandaki her şeyi kapat
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); /*turn off everything in the background.*/
                                             startActivity(intent);
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
-                                        public void onFailure(@NonNull Exception e) { //hata mesajı
+                                        public void onFailure(@NonNull Exception e) { /*error message*/
                                             Toast.makeText(PostActivity.this, e.getLocalizedMessage().toString(), Toast.LENGTH_LONG).show();
                                         }
                                     });
@@ -147,9 +147,9 @@ public class PostActivity extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {/*when you tap to camera image*/
             @Override
             public void onClick(View v) {
-//               if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) { //eğer izin yoksa
-//                    ActivityCompat.requestPermissions(PostActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_STORAGE);   //şu izni iste
-//                } else { //eğer bu izin verilmişse
+//               if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) { //if not allowed
+//                    ActivityCompat.requestPermissions(PostActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_STORAGE);   //ask for this permission
+//                } else { //if this is allowed
 //                   Intent intentToGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 //                   startActivityForResult(intentToGallery, 2);
 //               }
@@ -179,10 +179,10 @@ public class PostActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 0 && resultCode == RESULT_OK && data != null ) { //eğer izin verilmiş ve data boş değil ise
+        if (requestCode == 0 && resultCode == RESULT_OK && data != null ) { /*if allowed and data is not empty*/
              imageData = data.getData();
             try {
-                if (Build.VERSION.SDK_INT >= 28) {   //28 altındakiler için
+                if (Build.VERSION.SDK_INT >= 28) {   /*for android version*/
                     ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(),imageData);
                     selectedImage = ImageDecoder.decodeBitmap(source);
                     img.setImageBitmap(selectedImage);
