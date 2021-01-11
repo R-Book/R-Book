@@ -1,6 +1,6 @@
 # R-Book
 
-<img src="https://user-images.githubusercontent.com/37961587/104139004-6ac0af80-53b9-11eb-87e4-c1931f4e8ddf.jpg" width="500" height="500">
+<img src="https://user-images.githubusercontent.com/37961587/104139004-6ac0af80-53b9-11eb-87e4-c1931f4e8ddf.jpg" width="300" height="500">
 
 
 
