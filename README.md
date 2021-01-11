@@ -14,13 +14,14 @@ VIDEO ON YOUTUBE = https://www.youtube.com/watch?v=og0p6tmR1uA&feature=youtu.be
 
 # On Firebase: 
 
-User can Register and Sing out on Firebase :
+# Authentication :
 
 ![2021-01-10](https://user-images.githubusercontent.com/64332825/104125641-18f03900-5369-11eb-8294-f7e6e958a402.png)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# We can send image :
+# Storage:
+We can send image 
 
 
 ![2021-01-11 (1)](https://user-images.githubusercontent.com/64332825/104139082-fc302180-53b9-11eb-9aeb-714477277feb.png)
@@ -29,7 +30,8 @@ User can Register and Sing out on Firebase :
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 
-# We can see send image information :
+# Cloud Firestore
+We can see send image information :
 
 
 ![2021-01-11](https://user-images.githubusercontent.com/64332825/104139139-57faaa80-53ba-11eb-89f7-0334159a91de.png)	
