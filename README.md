@@ -21,6 +21,5 @@ User can Register and Sing out on Firebase :
 # We can see send image information :
 
 
-![2021-01-10 (2)](https://user-images.githubusercontent.com/64332825/104134686-5a4e0c00-539c-11eb-982c-4b33188d13d8.png)
-
+![2021-01-11](https://user-images.githubusercontent.com/64332825/104139139-57faaa80-53ba-11eb-89f7-0334159a91de.png)
 
