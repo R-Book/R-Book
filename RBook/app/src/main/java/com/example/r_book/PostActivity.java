@@ -148,6 +148,9 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+               //for galery Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                // for camera MediaStore.ACTION_IMAGE_CAPTURE
+
                 Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intent, CAPTURE_IMAGE);
