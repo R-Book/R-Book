@@ -39,7 +39,7 @@ public class FirstFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        pageViewModel = new ViewModelProvider(requireActivity()).get(PageViewModel.class); /*değer atadık*/
+        pageViewModel = new ViewModelProvider(requireActivity()).get(PageViewModel.class);
 
     }
 

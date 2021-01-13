@@ -34,7 +34,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         EasySplashScreen config = new EasySplashScreen(SplashScreenActivity.this)
                 .withFullScreen()
                 .withTargetActivity(TabbedActivity.class)
-                //.withSplashTimeOut(3000)
                 .withBackgroundColor(Color.parseColor("#1a1b29"))
                 .withHeaderText("  ")
                 .withFooterText("  ")

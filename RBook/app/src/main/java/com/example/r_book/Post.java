@@ -1,7 +1,6 @@
 package com.example.r_book;
 
 import android.graphics.Bitmap;
-import android.location.Location;
 
 public class Post {
 
