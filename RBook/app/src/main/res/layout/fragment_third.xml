@@ -113,10 +113,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="320dp"
-        android:layout_marginRight="320dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginRight="125dp"
         android:backgroundTint="#C8FFC107"
         android:gravity="center_horizontal"
         android:text="LOGIN"
@@ -124,32 +124,8 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
-
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="320dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="#BEFFC107"
-        android:gravity="center_horizontal"
-        android:text="REGISTER"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        app:layout_constraintVertical_bias="0.855" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
