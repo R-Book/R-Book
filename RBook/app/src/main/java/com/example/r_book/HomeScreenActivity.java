@@ -79,7 +79,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+/*    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {   //they recieved named data
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -92,7 +92,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             posts.add(post);
             ((FeedRecyclerAdapter) recyclerView.getAdapter()).notifyDataSetChanged();
         }
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {/*to connect to the menu */

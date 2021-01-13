@@ -1,4 +1,4 @@
-package com.example.r_book.ui.main;
+  package com.example.r_book.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,7 +52,6 @@ public class ThirdFragment extends Fragment {
 
         EditText Email = view.findViewById(R.id.username);
         EditText Password = view.findViewById(R.id.password);
-        Button Register = view.findViewById(R.id.register_button);
         Button Login = view.findViewById(R.id.login_button);
 
         firebaseAuth = FirebaseAuth.getInstance();    /*değer atadık*/

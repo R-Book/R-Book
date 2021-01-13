@@ -14,11 +14,27 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main)
+
+        //thread
+
+        Thread thread = new Thread(){
+
+            public void run(){
+                try{
+                    sleep(3000);
+
+                }catch (Exception e){
+
+                }finally{
+
+                }
+            }
+        };
+
         EasySplashScreen config = new EasySplashScreen(SplashScreenActivity.this)
                 .withFullScreen()
                 .withTargetActivity(TabbedActivity.class)
-                .withSplashTimeOut(3000)
+                //.withSplashTimeOut(3000)
                 .withBackgroundColor(Color.parseColor("#1a1b29"))
                 .withHeaderText("  ")
                 .withFooterText("  ")
