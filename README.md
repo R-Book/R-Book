@@ -13,6 +13,9 @@ VIDEO ON YOUTUBE = https://www.youtube.com/watch?v=ERmEO7HFCvA
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Presentation Plan = https://docs.google.com/document/d/1EhsJBMzngKZzHS7pn7JrTtjm5MlWsgCzfSpNhaDO__4/edit?usp=sharing
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # On Firebase: 
 
 # Authentication :
