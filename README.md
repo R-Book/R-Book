@@ -7,7 +7,7 @@
 <img src="https://user-images.githubusercontent.com/37961587/104144910-35768a80-53d6-11eb-85f0-0103aa873f43.jpg" width="200" height="400">.     .<img src="https://user-images.githubusercontent.com/37961587/104139019-85932400-53b9-11eb-8960-c749cb0dea04.jpg" width="200" height="400">  
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-VIDEO ON YOUTUBE = https://www.youtube.com/watch?v=ERmEO7HFCvA	PREDEMO VIDEO ON YOUTUBE = https://www.youtube.com/watch?v=ERmEO7HFCvA
+PREDEMO VIDEO ON YOUTUBE = https://www.youtube.com/watch?v=ERmEO7HFCvA
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
