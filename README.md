@@ -41,3 +41,8 @@ We can see send image information :
 ![2021-01-11](https://user-images.githubusercontent.com/64332825/104139139-57faaa80-53ba-11eb-89f7-0334159a91de.png)	
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Additional
+
+Fatma: Since I couldn't access github when we first started, I sent the xml files to my groupmate via e-mail, so that's why you didn't commit there, otherwise we acted together.
