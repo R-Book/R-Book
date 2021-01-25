@@ -18,12 +18,6 @@ Presentation plan = https://docs.google.com/document/d/1EhsJBMzngKZzHS7pn7JrTtjm
 
 
 
-R-BOOK FINAL PRESENTATION = https://www.youtube.com/watch?v=bYF7XkbR1oY
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 
 # On Firebase: 
 
